@@ -90,12 +90,13 @@ class Sub:
         # TODO: Implement string representation for subtraction
         # Should handle parentheses similar to Mul class
         # Hint: Look at how Mul class handles parentheses
-        if isinstance(self.p1, Add):
-            if isinstance(self.p2, Add):
+        if isinstance(self.p2, Add) or isinstance(self.p2, Sub) or isinstance(self.p2, Mul) or isinstance(self.p2, Div):
+            if isinstance(self.p2, Add) or isinstance(self.p2, Sub) or isinstance(self.p2, Mul) or isinstance(self.p2, Div):
                 return "( " + repr(self.p1) + " ) - ( " + repr(self.p2) + " )"
             return "( " + repr(self.p1) + " ) - " + repr(self.p2)
-        if isinstance(self.p2, Add):
+        if isinstance(self.p2, Add) or isinstance(self.p2, Sub) or isinstance(self.p2, Mul) or isinstance(self.p2, Div):
             return repr(self.p1) + " - ( " + repr(self.p2) + " )"
+        
         return repr(self.p1) + " - " + repr(self.p2)
 
 
@@ -129,13 +130,15 @@ class Div:
         if self.p1 == 0:
             return "1"
 
-        if isinstance(self.p1, Add):
-            if isinstance(self.p2, Add):
+        if isinstance(self.p2, Add) or isinstance(self.p2, Sub) or isinstance(self.p2, Mul) or isinstance(self.p2, Div):
+            if isinstance(self.p2, Add) or isinstance(self.p2, Sub) or isinstance(self.p2, Mul) or isinstance(self.p2, Div):
                 return "( " + repr(self.p1) + " ) / ( " + repr(self.p2) + " )"
             return "( " + repr(self.p1) + " ) / " + repr(self.p2)
-        if isinstance(self.p2, Add):
+        if isinstance(self.p2, Add) or isinstance(self.p2, Sub) or isinstance(self.p2, Mul) or isinstance(self.p2, Div):
             return repr(self.p1) + " / ( " + repr(self.p2) + " )"
+        
         return repr(self.p1) + " / " + repr(self.p2)
+    
 
 
     def evaluate(self, x_value):
@@ -147,7 +150,6 @@ class Div:
         # TODO (Optional Exercise): Implement simplification
         # Examples: X / 1 -> X, 6 / 2 -> 3
         # Hint: Simplify operands first, then apply simplification rules
-
 
         pass
 
