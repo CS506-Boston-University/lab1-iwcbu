@@ -1,5 +1,3 @@
-
-
 class X:
     def __init__(self):
         pass
@@ -89,7 +87,9 @@ class Mul:
             return Int(p1s.i * p2s.i)
 
         # X * 0 or 0 * X -> 0
-        if (isinstance(p1s, Int) and p1s.i == 0) or (isinstance(p2s, Int) and p2s.i == 0):
+        if (isinstance(p1s, Int) and p1s.i == 0) or (
+            isinstance(p2s, Int) and p2s.i == 0
+        ):
             return Int(0)
 
         # X * 1 -> X
@@ -213,7 +213,10 @@ try:
     original_result = poly.evaluate(2)
     print(f"Original polynomial evaluation for X=2: {original_result}")
 except Exception as e:
-    print("❌ Original polynomial evaluation failed - evaluate methods not implemented yet:", e)
+    print(
+        "❌ Original polynomial evaluation failed - evaluate methods not implemented yet:",
+        e,
+    )
 
 # demonstrate simplify()
 print("\n--- Testing simplify ---")
